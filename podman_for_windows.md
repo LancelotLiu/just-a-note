@@ -8,8 +8,8 @@
     ```
     netsh interface portproxy add v4tov4 listenport=[PORT] listenaddress=0.0.0.0 connectport=[PORT] connectaddress=[WSL_IP]
     ```
-  * 疑似是 Hyper-V 的問題，與 Windows NAT 服務有關
-    ![image info](./podman_for_windows_001.png)
+  * 疑似是 Hyper-V 的問題，與 Windows NAT [[註1]][1] [[註2]][2] 服務有關
+    ![issue](./podman_for_windows_001.png)
   
   * 重啟 Windows NAT 服務應可恢復正常
     ```
@@ -38,5 +38,7 @@
     ----------    --------
          50000       50059     *
     * - Administered port exclusions.
-    ```    
+    ```
 
+[1]: https://blog.darkthread.net/blog/clear-reserved-tcp-port-ranges/
+[2]: https://github.com/containers/podman/issues/16470#issuecomment-1460180727
